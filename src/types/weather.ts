@@ -24,3 +24,9 @@ export interface WeatherData {
 export interface WeatherTimeLineProps {
   weatherData: WeatherData[]
 }
+
+export type Themes = 'morning' | 'noon' | 'evening' | 'night'
+
+export interface BackgroundProps {
+  theme: Themes
+}

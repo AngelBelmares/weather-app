@@ -1,5 +1,20 @@
+import { Themes } from '../types/weather'
+
+function getGradient (theme: Themes): string {
+  switch (theme) {
+    case 'morning':
+      return 'url(#morningGrad1)'
+    case 'noon':
+      return 'url(#noonGrad1)'
+    case 'evening':
+      return 'url(#eveningGrad1)'
+    case 'night':
+      return ''
+  }
+}
+
 export function CitySVG1 ({ theme }: any): JSX.Element {
-  const color = theme === 'morning' ? '#186ea0' : '#ffffff'
+  const gradient = getGradient(theme)
 
   return (
     <svg
@@ -8,7 +23,17 @@ export function CitySVG1 ({ theme }: any): JSX.Element {
       preserveAspectRatio='xMidYMid meet'
     >
       <defs>
-        <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+        <linearGradient id='eveningGrad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='20%' style={{ stopColor: 'rgba(205,114,133,1)', stopOpacity: 1 }} />
+          <stop offset='100%' style={{ stopColor: 'rgba(170,50,95,1)', stopOpacity: 1 }} />
+        </linearGradient>
+
+        <linearGradient id='noonGrad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='30%' style={{ stopColor: 'rgba(198,244,255,1)', stopOpacity: 1 }} />
+          <stop offset='100%' style={{ stopColor: 'rgba(0,146,233,1)', stopOpacity: 1 }} />
+        </linearGradient>
+
+        <linearGradient id='morningGrad1' x1='0%' y1='0%' x2='0%' y2='100%'>
           <stop offset='20%' style={{ stopColor: 'rgba(255,244,0,1)', stopOpacity: 1 }} />
           <stop offset='40%' style={{ stopColor: 'rgba(255,252,182,1)', stopOpacity: 1 }} />
           <stop offset='70%' style={{ stopColor: 'rgba(50,150,190,1)', stopOpacity: 1 }} />
@@ -19,7 +44,7 @@ export function CitySVG1 ({ theme }: any): JSX.Element {
       </metadata>
       <g
         transform='translate(0.000000,640.000000) scale(0.100000,-0.100000)'
-        fill='url(#grad1)' stroke='none'
+        fill={gradient} stroke='none'
       >
         <path d='M7750 6250 c0 -5 5 -10 11 -10 5 0 7 5 4 10 -3 6 -8 10 -11 10 -2 0
 -4 -4 -4 -10z'

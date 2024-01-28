@@ -1,5 +1,20 @@
+import { Themes } from '../types/weather'
+
+function getGradient (theme: Themes): string {
+  switch (theme) {
+    case 'morning':
+      return 'url(#morningGrad2)'
+    case 'noon':
+      return 'url(#noonGrad2)'
+    case 'evening':
+      return 'url(#eveningGrad2)'
+    case 'night':
+      return ''
+  }
+}
+
 export function CitySVG2 ({ theme }: any): JSX.Element {
-  const color = theme === 'morning' ? '#186ea0' : '#ffffff'
+  const gradient = getGradient(theme)
 
   return (
 
@@ -9,7 +24,15 @@ export function CitySVG2 ({ theme }: any): JSX.Element {
       preserveAspectRatio='xMidYMid meet'
     >
       <defs>
-        <linearGradient id='grad2' x1='0%' y1='0%' x2='0%' y2='100%'>
+        <linearGradient id='eveningGrad2' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='15%' style={{ stopColor: 'rgba(205,114,133,1)', stopOpacity: 1 }} />
+          <stop offset='100%' style={{ stopColor: 'rgba(170,50,100,1)', stopOpacity: 1 }} />
+        </linearGradient>
+        <linearGradient id='noonGrad2' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='10%' style={{ stopColor: 'rgba(198,244,255,1)', stopOpacity: 1 }} />
+          <stop offset='100%' style={{ stopColor: 'rgba(0,146,233,1)', stopOpacity: 1 }} />
+        </linearGradient>
+        <linearGradient id='morningGrad2' x1='0%' y1='0%' x2='0%' y2='100%'>
           <stop offset='10%' style={{ stopColor: 'rgba(255,244,0,1)', stopOpacity: 1 }} />
           <stop offset='20%' style={{ stopColor: 'rgba(255,252,182,1)', stopOpacity: 1 }} />
           <stop offset='50%' style={{ stopColor: 'rgba(50,150,190,1)', stopOpacity: 1 }} />
@@ -20,7 +43,7 @@ export function CitySVG2 ({ theme }: any): JSX.Element {
       </metadata>
       <g
         transform='translate(0.000000,640.000000) scale(0.100000,-0.100000)'
-        fill='url(#grad2)' stroke='none'
+        fill={gradient} stroke='none'
       >
         <path d='M4507 6394 c-14 -23 -18 -101 -21 -409 -2 -188 -8 -330 -14 -345 -5
     -14 -22 -35 -36 -47 l-26 -23 0 -258 c0 -279 -9 -351 -49 -378 -20 -14 -21

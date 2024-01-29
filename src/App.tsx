@@ -1,7 +1,7 @@
 import './App.css'
-import apiRespone from './utils/api_response_example.json'
-import { WeatherTimeLine } from './components/WeatherTimeLine'
 import { Background } from './components/Background'
+import { WeatherTimeLine } from './components/WeatherTimeLine'
+import apiRespone from './utils/api_response_example.json'
 
 const weatherData = apiRespone.days
 
@@ -20,10 +20,13 @@ const mappedWeatherData = weatherData?.map(day => ({
 function App (): JSX.Element {
   return (
     <>
-      <Background theme='morning' />
-      <WeatherTimeLine
-        weatherData={mappedWeatherData}
-      />
+      <Background theme='night' />
+      <main className='flex flex-col items-center justify-between w-full h-96 p-3 md:w-3/4  bg-black'>
+        <WeatherTimeLine
+          weatherData={mappedWeatherData}
+        />
+        {/* {<WeatherForecast />} */}
+      </main>
     </>
   )
 }

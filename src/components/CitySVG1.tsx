@@ -9,7 +9,7 @@ function getGradient (theme: Themes): string {
     case 'evening':
       return 'url(#eveningGrad1)'
     case 'night':
-      return ''
+      return 'url(#nightGrad1)'
   }
 }
 
@@ -23,6 +23,11 @@ export function CitySVG1 ({ theme }: any): JSX.Element {
       preserveAspectRatio='xMidYMid meet'
     >
       <defs>
+        <linearGradient id='nightGrad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+          <stop offset='0%' style={{ stopColor: 'rgba(199,183,255,1)', stopOpacity: 1 }} />
+          <stop offset='90%' style={{ stopColor: 'rgba(56,36,150,1)', stopOpacity: 1 }} />
+        </linearGradient>
+
         <linearGradient id='eveningGrad1' x1='0%' y1='0%' x2='0%' y2='100%'>
           <stop offset='20%' style={{ stopColor: 'rgba(205,114,133,1)', stopOpacity: 1 }} />
           <stop offset='100%' style={{ stopColor: 'rgba(170,50,95,1)', stopOpacity: 1 }} />

@@ -5,7 +5,7 @@ export function WeatherCard ({ day, imageSrc, temperature, conditions }: Weather
   const dayName = dateToDay(day)
 
   return (
-    <article className='flex flex-col text-white justify-center items-center min-h-32 min-w-40 p-2 bg-slate-700 backdrop-blur-sm rounded-sm'>
+    <article className='flex flex-col text-white justify-center items-center min-h-32 min-w-40 p-2 bg-slate-700 backdrop-blur-sm rounded-sm cursor-pointer'>
       <header className='flex flex-col justify-center items-center'>
         <h2 className='font-bold text-lg'>{dayName}</h2>
         <img src={`../public/assets/icons/${imageSrc}.png`} alt='' />

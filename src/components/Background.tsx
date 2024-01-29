@@ -3,8 +3,6 @@ import { CitySVG2 } from './CitySVG2'
 import { BackgroundProps } from '../types/weather'
 
 export function Background ({ theme }: BackgroundProps): JSX.Element | null {
-  theme = 'evening'
-
   if (theme === 'morning') {
     return <MorningBackground />
   } else if (theme === 'noon') {
@@ -12,7 +10,7 @@ export function Background ({ theme }: BackgroundProps): JSX.Element | null {
   } else if (theme === 'evening') {
     return <EveningBackground />
   } else if (theme === 'night') {
-    return null
+    return <NightBackground />
   } else {
     return null
   }
@@ -79,6 +77,31 @@ function EveningBackground (): JSX.Element {
         padding: 0,
         height: '100vh',
         background: 'linear-gradient(180deg, rgba(190,170,220,1) 0%, rgba(230,110,130,1) 100%)',
+        backgroundPosition: 'center center'
+      }}
+      />
+      <div />
+      <div className='z-50 absolute h-full w-full -bottom-64 left-1/2 transform -translate-x-1/2 overflow-hidden'>
+        <CitySVG1 theme={theme} />
+      </div>
+      <div className='z-40 absolute h-full w-full -bottom-7 left-1/2 transform -translate-x-1/2 overflow-hidden'>
+        <CitySVG2 theme={theme} />
+      </div>
+    </div>
+  )
+}
+
+function NightBackground (): JSX.Element {
+  const theme = 'night'
+  return (
+    <div className='bg-white fixed -z-10 w-screen h-screen overflow-hidden'>
+      <div style={{
+        position: 'absolute',
+        width: '100vw',
+        margin: 0,
+        padding: 0,
+        height: '100vh',
+        background: 'linear-gradient(180deg, rgba(80,50,180,1) 25%, rgba(199,183,255,1) 100%)',
         backgroundPosition: 'center center'
       }}
       />

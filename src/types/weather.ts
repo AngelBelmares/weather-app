@@ -7,6 +7,7 @@ export interface WeatherCardProps {
     max: number
     min: number
   }
+  handleDayChange?: (day: any) => void
 }
 
 export interface WeatherData {
@@ -18,11 +19,16 @@ export interface WeatherData {
     max: number
     min: number
   }
+  hours: Array<{
+    datetime: string
+    temp: number
+  }>
   description: string
 }
 
-export interface WeatherTimeLineProps {
+export interface ForecastCardsProps {
   weatherData: WeatherData[]
+  setSelectedDay: (day: any) => void
 }
 
 export type Themes = 'morning' | 'noon' | 'evening' | 'night'

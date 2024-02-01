@@ -23,7 +23,7 @@ export function ForecastCards ({ weatherData = [] }: WeatherTimeLineProps): JSX.
   }
 
   return (
-    <section className='relative flex items-center h-full w-full'>
+    <section className='relative flex items-center justify-center h-full w-full'>
       <MdChevronLeft className='opacity-70 hover:opacity-100' onClick={slideLeft} size={40} color='white' />
       <div id='slider' className='flex items-center justify-start w-fit gap-2 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
         {weatherData.map((data, index) => {

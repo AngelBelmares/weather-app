@@ -3,7 +3,6 @@ export interface WeatherCardProps {
   conditions: string
   imageSrc: string
   temperature: {
-    current: number
     max: number
     min: number
   }

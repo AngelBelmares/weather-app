@@ -35,3 +35,19 @@ export type Themes = 'morning' | 'noon' | 'evening' | 'night'
 export interface BackgroundProps {
   theme: Themes
 }
+
+export interface CurrentConditions {
+  conditions: string
+  dateTimeEpoch: number
+  icon: string
+  temperature: number
+  precip: number
+}
+
+export interface LocationInfo {
+  location: string
+  latitude: number
+  longeitude: number
+  sunrise: number
+  sunset: number
+}

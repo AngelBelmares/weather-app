@@ -67,7 +67,7 @@ export const getData = (day: any): any => ({
     },
     data: day.hours.map(hour => Math.round(hour.temp)),
     borderColor: 'rgba(255, 255, 255, 0.8)',
-    tension: 0.5,
+    tension: 0.4,
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     fill: 'start'
   }]

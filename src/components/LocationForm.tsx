@@ -15,15 +15,16 @@ export function LocationForm ({ onLocationChange }: any): JSX.Element {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='flex text-white' onSubmit={handleSubmit}>
       <input
+        className='p-1 rounded-sm w-full hover:scale-105 hover:brightness-110 hover:m-0 focus:outline-none bg-white/20 text-white placeholder-white/50'
         type='text'
         placeholder='Location'
         name='location'
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button type='submit'>SetLocation</button>
+      <button type='submit' className='aspect-square bg-white/20 h-full hover:scale-105 hover:brightness-110'>O</button>
     </form>
   )
 }

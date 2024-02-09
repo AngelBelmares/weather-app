@@ -45,9 +45,13 @@ export interface CurrentConditions {
 }
 
 export interface LocationInfo {
-  location: string
+  name: string
   latitude: number
-  longeitude: number
+  longitude: number
   sunrise: number
   sunset: number
+}
+
+export interface MapProps {
+  locationInfo: LocationInfo
 }

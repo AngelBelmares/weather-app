@@ -12,9 +12,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
     precip: 0
   })
   const [locationInfo, setLocationInfo] = useState<LocationInfo>({
-    location: '',
+    name: '',
     latitude: 0,
-    longeitude: 0,
+    longitude: 0,
     sunrise: 0,
     sunset: 0
   })
@@ -60,9 +60,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
           setWeatherData(mappedWeatherData)
         }
         const locationInfo: LocationInfo = {
-          location: data.resolvedAddress,
+          name: data.resolvedAddress,
           latitude: data.latitude,
-          longeitude: data.longitude,
+          longitude: data.longitude,
           sunrise: data.days[0].sunrise,
           sunset: data.days[0].sunset
         }

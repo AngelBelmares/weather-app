@@ -38,7 +38,7 @@ export interface BackgroundProps {
 
 export interface CurrentConditions {
   conditions: string
-  dateTimeEpoch: number
+  dateTimeEpoch: EpochTimeStamp
   icon: string
   temperature: number
   precip: number
@@ -48,10 +48,14 @@ export interface LocationInfo {
   name: string
   latitude: number
   longitude: number
-  sunrise: number
-  sunset: number
+  tzoffset: number
+  sunriseEpoch: EpochTimeStamp
+  sunsetEpoch: EpochTimeStamp
 }
 
 export interface MapProps {
-  locationInfo: LocationInfo
+  locationInfo: {
+    latitude: number
+    longitude: number
+  }
 }

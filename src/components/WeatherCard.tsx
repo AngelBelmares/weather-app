@@ -20,5 +20,9 @@ export function WeatherCard ({ handleDayChange, day, imageSrc, temperature = { m
         </footer>
       </article>
     )
+  } else {
+    return (
+      <div>Weather Card Skeleton</div>
+    )
   }
 }

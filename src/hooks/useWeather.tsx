@@ -15,8 +15,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
     name: '',
     latitude: 0,
     longitude: 0,
-    sunrise: 0,
-    sunset: 0
+    tzoffset: 0,
+    sunriseEpoch: 0,
+    sunsetEpoch: 0
   })
 
   if (location === '') {
@@ -63,8 +64,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
           name: data.resolvedAddress,
           latitude: data.latitude,
           longitude: data.longitude,
-          sunrise: data.days[0].sunrise,
-          sunset: data.days[0].sunset
+          tzoffset: data.tzoffset,
+          sunriseEpoch: data.days[0].sunriseEpoch,
+          sunsetEpoch: data.days[0].sunsetEpoch
         }
         setLocationInfo(locationInfo)
       } catch (error) {

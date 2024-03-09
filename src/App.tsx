@@ -37,7 +37,7 @@ function App (): JSX.Element {
       <main className='flex flex-col items-center justify-between w-full md:w-4/5 lg:w-1/2 m-4 gap-6 overflow-hidden'>
         <h1 className='font-bold text-3xl text-white'>{locationInfo.name}</h1>
         <div className='flex gap-8'>
-          <MainCard currentConditions={currentConditions} />
+          <MainCard currentConditions={currentConditions} tzoffset={locationInfo.tzoffset} />
           <aside className='flex flex-col gap-8 w-1/2'>
             <LocationForm onLocationChange={handleLocationChange} />
             <Map locationInfo={locationInfo} />

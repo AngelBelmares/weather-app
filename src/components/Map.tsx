@@ -1,11 +1,20 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import { useEffect, useRef } from 'react'
-import { MapProps } from '../types/weather'
-import { purpleMode } from '../utils/mapThemes'
+import { setMapTheme } from '../utils/mapThemes'
+import { Themes } from '../types/weather'
 
-export function Map ({ locationInfo }: MapProps): JSX.Element {
+interface MapProps {
+  locationInfo: {
+    latitude: number
+    longitude: number
+  }
+  theme?: Themes
+}
+
+export function Map ({ locationInfo, theme }: MapProps): JSX.Element {
   const { latitude, longitude } = locationInfo
   const mapRef = useRef()
+  const mapTheme = setMapTheme(theme)
 
   useEffect(() => {
     const loader = new Loader({
@@ -20,7 +29,7 @@ export function Map ({ locationInfo }: MapProps): JSX.Element {
           lng: longitude
         },
         zoom: 10,
-        styles: purpleMode,
+        styles: mapTheme,
         disableDefaultUI: true
       }
 
@@ -31,7 +40,7 @@ export function Map ({ locationInfo }: MapProps): JSX.Element {
     }).catch((error) => {
       console.error('Error loading Google Maps:', error)
     })
-  }, [])
+  }, [theme])
 
   useEffect(() => {
     if (mapRef.current !== undefined) {

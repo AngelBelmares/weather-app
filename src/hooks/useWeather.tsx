@@ -9,7 +9,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
     dateTimeEpoch: 0,
     icon: '',
     temperature: 0,
-    precip: 0
+    precip: 0,
+    sunriseEpoch: 0,
+    sunsetEpoch: 0
   })
   const [locationInfo, setLocationInfo] = useState<LocationInfo>({
     name: '',
@@ -39,7 +41,9 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
           dateTimeEpoch: currentConditions.datetimeEpoch,
           icon: currentConditions.icon,
           temperature: currentConditions.temp,
-          precip: currentConditions.precip
+          precip: currentConditions.precip,
+          sunriseEpoch: currentConditions.sunriseEpoch,
+          sunsetEpoch: currentConditions.sunsetEpoch
         }
         setCurrentConditions(mappedCurrentConditions)
         const weatherData = data.days

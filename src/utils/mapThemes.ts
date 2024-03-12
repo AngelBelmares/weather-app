@@ -1,142 +1,6 @@
-export const darkMode = [
-  {
-    featureType: 'all',
-    elementType: 'labels.text.fill',
-    stylers: [
-      {
-        color: '#ffffff'
-      }
-    ]
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.text.stroke',
-    stylers: [
-      {
-        color: '#000000'
-      },
-      {
-        lightness: 13
-      }
-    ]
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#000000'
-      }
-    ]
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#144b53'
-      },
-      {
-        lightness: 14
-      },
-      {
-        weight: 1.4
-      }
-    ]
-  },
-  {
-    featureType: 'landscape',
-    elementType: 'all',
-    stylers: [
-      {
-        color: '#08304b'
-      }
-    ]
-  },
-  {
-    featureType: 'poi',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#0c4152'
-      },
-      {
-        lightness: 5
-      }
-    ]
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#000000'
-      }
-    ]
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#0b434f'
-      },
-      {
-        lightness: 25
-      }
-    ]
-  },
-  {
-    featureType: 'road.arterial',
-    elementType: 'geometry.fill',
-    stylers: [
-      {
-        color: '#000000'
-      }
-    ]
-  },
-  {
-    featureType: 'road.arterial',
-    elementType: 'geometry.stroke',
-    stylers: [
-      {
-        color: '#0b3d51'
-      },
-      {
-        lightness: 16
-      }
-    ]
-  },
-  {
-    featureType: 'road.local',
-    elementType: 'geometry',
-    stylers: [
-      {
-        color: '#000000'
-      }
-    ]
-  },
-  {
-    featureType: 'transit',
-    elementType: 'all',
-    stylers: [
-      {
-        color: '#146474'
-      }
-    ]
-  },
-  {
-    featureType: 'water',
-    elementType: 'all',
-    stylers: [
-      {
-        color: '#021019'
-      }
-    ]
-  }
-]
+import { Themes } from '../types/weather'
 
-export const purpleMode = [
+const purpleMode = [
   {
     featureType: 'landscape',
     elementType: 'all',
@@ -231,3 +95,258 @@ export const purpleMode = [
     ]
   }
 ]
+
+const skyeBlueMode = [
+  {
+    featureType: 'all',
+    elementType: 'labels.text',
+    stylers: [
+      {
+        color: '#878787'
+      }
+    ]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.text.stroke',
+    stylers: [
+      {
+        visibility: 'off'
+      }
+    ]
+  },
+  {
+    featureType: 'landscape',
+    elementType: 'all',
+    stylers: [
+      {
+        color: '#f9f5ed'
+      }
+    ]
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'all',
+    stylers: [
+      {
+        color: '#f5f5f5'
+      }
+    ]
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#c9c9c9'
+      }
+    ]
+  },
+  {
+    featureType: 'water',
+    elementType: 'all',
+    stylers: [
+      {
+        color: '#aee0f4'
+      }
+    ]
+  }
+]
+
+const eveningMode = [
+  {
+    featureType: 'all',
+    elementType: 'geometry',
+    stylers: [
+      {
+        color: '#eec8df'
+      }
+    ]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.text.fill',
+    stylers: [
+      {
+        gamma: 0.01
+      },
+      {
+        lightness: 20
+      }
+    ]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.text.stroke',
+    stylers: [
+      {
+        saturation: -31
+      },
+      {
+        lightness: -33
+      },
+      {
+        weight: 2
+      },
+      {
+        gamma: 0.8
+      }
+    ]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.icon',
+    stylers: [
+      {
+        visibility: 'off'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative.province',
+    elementType: 'labels.text.stroke',
+    stylers: [
+      {
+        saturation: '-98'
+      },
+      {
+        lightness: '87'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative.locality',
+    elementType: 'labels.text.fill',
+    stylers: [
+      {
+        lightness: '-84'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative.neighborhood',
+    elementType: 'labels.text.fill',
+    stylers: [
+      {
+        lightness: '100'
+      },
+      {
+        saturation: '-1'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative.neighborhood',
+    elementType: 'labels.text.stroke',
+    stylers: [
+      {
+        saturation: '66'
+      },
+      {
+        lightness: '0'
+      },
+      {
+        weight: '2.60'
+      }
+    ]
+  },
+  {
+    featureType: 'landscape',
+    elementType: 'geometry',
+    stylers: [
+      {
+        lightness: 30
+      },
+      {
+        saturation: 30
+      }
+    ]
+  },
+  {
+    featureType: 'poi',
+    elementType: 'geometry',
+    stylers: [
+      {
+        saturation: 20
+      }
+    ]
+  },
+  {
+    featureType: 'poi.park',
+    elementType: 'geometry',
+    stylers: [
+      {
+        lightness: 20
+      },
+      {
+        saturation: -20
+      }
+    ]
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [
+      {
+        lightness: '68'
+      },
+      {
+        saturation: '-14'
+      },
+      {
+        visibility: 'simplified'
+      }
+    ]
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        saturation: 25
+      },
+      {
+        lightness: 25
+      }
+    ]
+  },
+  {
+    featureType: 'road',
+    elementType: 'labels.text',
+    stylers: [
+      {
+        saturation: '-100'
+      },
+      {
+        lightness: '-32'
+      },
+      {
+        gamma: '1.21'
+      },
+      {
+        weight: '0.01'
+      }
+    ]
+  },
+  {
+    featureType: 'water',
+    elementType: 'all',
+    stylers: [
+      {
+        lightness: -20
+      }
+    ]
+  }
+]
+export const setMapTheme = (theme: Themes | undefined): any => {
+  if (theme === 'night') {
+    return purpleMode
+  } else if (theme === 'morning') {
+    return skyeBlueMode
+  } else if (theme === 'noon') {
+    return skyeBlueMode
+  } else if (theme === 'evening') {
+    return eveningMode
+  }
+  return purpleMode
+}

@@ -17,14 +17,14 @@ export function LocationForm ({ onLocationChange }: any): JSX.Element {
   return (
     <form className='flex text-white' onSubmit={handleSubmit}>
       <input
-        className='p-1 rounded-sm w-full hover:scale-105 hover:brightness-110 hover:m-0 focus:outline-none bg-white/20 text-white placeholder-white/50'
+        className='p-1 rounded-sm w-full hover:scale-105 hover:brightness-110 hover:m-0 focus:outline-none bg-white/45 dark:bg-sky-900/25 text-white placeholder-white/50'
         type='text'
         placeholder='Location'
         name='location'
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button type='submit' className='aspect-square bg-white/20 h-full hover:scale-105 hover:brightness-110'>O</button>
+      <button type='submit' className='aspect-square bg-white/45 h-full hover:scale-105 hover:brightness-110 dark:bg-sky-900/25'>O</button>
     </form>
   )
 }

@@ -12,6 +12,7 @@ import {
   Filler
 } from 'chart.js'
 import { getData, getOptions } from '../utils/chartConfig'
+import { WeatherData } from '../types/weather'
 
 ChartJS.register(
   CategoryScale,
@@ -25,18 +26,28 @@ ChartJS.register(
   ChartDataLabels
 )
 
-export function TemperatureChart ({ day }: any): JSX.Element {
-  if (day == null || day?.hours == null) return (<div>Day is not defined</div>)
+interface TemperatureChartProps {
+  weatherData: WeatherData
+}
 
-  const maxTemp = Math.max(...day.hours.map((hour: any) => hour.temp))
-  const minTemp = Math.min(...day.hours.map((hour: any) => hour.temp))
+export function TemperatureChart ({ weatherData }: TemperatureChartProps): JSX.Element {
+  if (weatherData == null || weatherData?.hours == null) return (<div>Day is not defined</div>)
 
-  const data = getData(day)
+  const maxTemp = Math.max(...weatherData.hours.map((hour) => hour.temp))
+  const minTemp = Math.min(...weatherData.hours.map((hour) => hour.temp))
+
+  const data = getData(weatherData)
   const options = getOptions(minTemp, maxTemp)
+  const date = new Date(weatherData.day).toLocaleString(undefined, {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric'
+  })
 
   return (
-    <section className='flex w-full h-full justify-center backdrop-blur-sm'>
-      <div className='w-full'>
+    <section className='flex flex-col items-center gap-y-5 w-full h-full justify-center text-white dark:text-gray-800 font-semibold'>
+      <h2 className='text-2xl'>{date}</h2>
+      <div className='w-full h-56 '>
         <Line data={data} options={options} />
       </div>
     </section>

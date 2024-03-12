@@ -42,6 +42,8 @@ export interface CurrentConditions {
   icon: string
   temperature: number
   precip: number
+  sunriseEpoch: EpochTimeStamp
+  sunsetEpoch: EpochTimeStamp
 }
 
 export interface LocationInfo {
@@ -51,11 +53,4 @@ export interface LocationInfo {
   tzoffset: number
   sunriseEpoch: EpochTimeStamp
   sunsetEpoch: EpochTimeStamp
-}
-
-export interface MapProps {
-  locationInfo: {
-    latitude: number
-    longitude: number
-  }
 }

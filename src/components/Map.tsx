@@ -11,9 +11,9 @@ interface MapProps {
   theme?: Themes
 }
 
-export function Map ({ locationInfo, theme }: MapProps): JSX.Element {
+export function GoogleMap ({ locationInfo, theme }: MapProps): JSX.Element {
   const { latitude, longitude } = locationInfo
-  const mapRef = useRef()
+  const mapRef = useRef<google.maps.Map | null>(null)
   const mapTheme = setMapTheme(theme)
 
   useEffect(() => {

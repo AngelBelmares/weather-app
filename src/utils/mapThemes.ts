@@ -96,13 +96,13 @@ const purpleMode = [
   }
 ]
 
-const skyeBlueMode = [
+const noonMode = [
   {
     featureType: 'all',
-    elementType: 'labels.text',
+    elementType: 'labels.text.fill',
     stylers: [
       {
-        color: '#878787'
+        color: '#ffffff'
       }
     ]
   },
@@ -111,7 +111,34 @@ const skyeBlueMode = [
     elementType: 'labels.text.stroke',
     stylers: [
       {
-        visibility: 'off'
+        color: '#000000'
+      },
+      {
+        lightness: 13
+      }
+    ]
+  },
+  {
+    featureType: 'administrative',
+    elementType: 'geometry.fill',
+    stylers: [
+      {
+        color: '#000000'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#144b53'
+      },
+      {
+        lightness: 14
+      },
+      {
+        weight: 1.4
       }
     ]
   },
@@ -120,16 +147,28 @@ const skyeBlueMode = [
     elementType: 'all',
     stylers: [
       {
-        color: '#f9f5ed'
+        color: '#08304b'
+      }
+    ]
+  },
+  {
+    featureType: 'poi',
+    elementType: 'geometry',
+    stylers: [
+      {
+        color: '#0c4152'
+      },
+      {
+        lightness: 5
       }
     ]
   },
   {
     featureType: 'road.highway',
-    elementType: 'all',
+    elementType: 'geometry.fill',
     stylers: [
       {
-        color: '#f5f5f5'
+        color: '#000000'
       }
     ]
   },
@@ -138,7 +177,49 @@ const skyeBlueMode = [
     elementType: 'geometry.stroke',
     stylers: [
       {
-        color: '#c9c9c9'
+        color: '#0b434f'
+      },
+      {
+        lightness: 25
+      }
+    ]
+  },
+  {
+    featureType: 'road.arterial',
+    elementType: 'geometry.fill',
+    stylers: [
+      {
+        color: '#000000'
+      }
+    ]
+  },
+  {
+    featureType: 'road.arterial',
+    elementType: 'geometry.stroke',
+    stylers: [
+      {
+        color: '#0b3d51'
+      },
+      {
+        lightness: 16
+      }
+    ]
+  },
+  {
+    featureType: 'road.local',
+    elementType: 'geometry',
+    stylers: [
+      {
+        color: '#000000'
+      }
+    ]
+  },
+  {
+    featureType: 'transit',
+    elementType: 'all',
+    stylers: [
+      {
+        color: '#146474'
       }
     ]
   },
@@ -147,7 +228,7 @@ const skyeBlueMode = [
     elementType: 'all',
     stylers: [
       {
-        color: '#aee0f4'
+        color: '#021019'
       }
     ]
   }
@@ -338,13 +419,44 @@ const eveningMode = [
     ]
   }
 ]
+
+const morningMode = [
+  {
+    stylers: [
+      {
+        hue: '#007fff'
+      },
+      {
+        saturation: 89
+      }
+    ]
+  },
+  {
+    featureType: 'water',
+    stylers: [
+      {
+        color: '#ffffff'
+      }
+    ]
+  },
+  {
+    featureType: 'administrative.country',
+    elementType: 'labels',
+    stylers: [
+      {
+        visibility: 'off'
+      }
+    ]
+  }
+]
+
 export const setMapTheme = (theme: Themes | undefined): any => {
   if (theme === 'night') {
     return purpleMode
   } else if (theme === 'morning') {
-    return skyeBlueMode
+    return morningMode
   } else if (theme === 'noon') {
-    return skyeBlueMode
+    return noonMode
   } else if (theme === 'evening') {
     return eveningMode
   }

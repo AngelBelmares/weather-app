@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { Background } from './components/Background'
 import { ForecastCards } from './components/ForecastCards'
 import { TemperatureChart } from './components/TemperatureChart'
 import { useWeather } from './hooks/useWeather'
@@ -10,6 +9,7 @@ import { MainCard } from './components/MainCard'
 import { Map } from './components/Map'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from './hooks/useLocation'
+import { Background } from './components/Background'
 
 function App (): JSX.Element {
   const [locationName, setLocationName] = useState<string>('')
@@ -35,7 +35,7 @@ function App (): JSX.Element {
     <>
       <Background theme={currentTheme} />
       <main className='flex flex-col items-center justify-between w-full md:w-4/5 lg:w-1/2 m-4 gap-6 overflow-hidden'>
-        <h1 className='font-bold text-3xl text-white dark:text-black'>{locationInfo.name}</h1>
+        <h1 className='font-bold text-3xl text-white/90'>{locationInfo.name}</h1>
         <div className='flex gap-8'>
           <MainCard currentConditions={currentConditions} tzoffset={locationInfo.tzoffset} />
           <aside className='flex flex-col gap-8 w-1/2'>

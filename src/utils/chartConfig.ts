@@ -1,16 +1,8 @@
 const labels = ['12 PM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM']
 
-const themeDark = document.getElementById('root')?.classList.contains('dark')
 const bdcolor = 'rgba(255, 255, 255, 0.9)'
-let bgcolor = 'rgba(12, 74, 110, 0.25)'
-let textcolor = 'white'
-
-if (themeDark === true) {
-  textcolor = 'rgb(31, 41, 55)'
-} else {
-  textcolor = 'white'
-  bgcolor = 'rgba(0, 0, 0, 0.2)'
-}
+const bgcolor = 'rgba(255, 255, 255, 0.25)'
+const textcolor = 'white'
 
 export const getOptions = (minTemp: number, maxTemp: number): any => ({
   scales: {

@@ -6,7 +6,7 @@ export function WeatherCard ({ handleDayChange, day, imageSrc, temperature = { m
 
   if (day !== '' && imageSrc !== '' && temperature !== null && conditions !== '') {
     return (
-      <article onClick={() => handleDayChange?.(day)} className='flex flex-col text-white justify-center items-center min-h-32 min-w-40 p-2 rounded-sm cursor-pointer backdrop-blur-sm bg-white/45 dark:bg-sky-900/25 shadow-md hover:brightness-110 hover:scale-110 transition-transform ease-out duration-300'>
+      <article onClick={() => handleDayChange?.(day)} className='flex flex-col text-white justify-center items-center min-h-32 min-w-40 p-2 rounded-sm cursor-pointer backdrop-blur-sm bg-white/30 dark:bg-white/15 shadow-md hover:brightness-110 hover:scale-110 transition-transform ease-out duration-300'>
         <header className='flex flex-col justify-center items-center'>
           <h2 className='font-bold text-lg'>{dayName}</h2>
           <img src={`/assets/icons/${imageSrc}.png`} alt='' />

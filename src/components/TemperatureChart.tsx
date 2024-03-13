@@ -45,7 +45,7 @@ export function TemperatureChart ({ weatherData }: TemperatureChartProps): JSX.E
   })
 
   return (
-    <section className='flex flex-col items-center gap-y-5 w-full h-full justify-center text-white dark:text-gray-800 font-semibold'>
+    <section className='flex flex-col items-center gap-y-5 w-full h-full justify-center text-white/90 font-semibold'>
       <h2 className='text-2xl'>{date}</h2>
       <div className='w-full h-56 '>
         <Line data={data} options={options} />

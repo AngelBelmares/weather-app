@@ -43,8 +43,8 @@ export function GoogleMap ({ locationInfo, theme }: MapProps): JSX.Element {
   }, [theme])
 
   useEffect(() => {
-    if (mapRef.current !== undefined) {
-      (mapRef.current as google.maps.Map).setCenter({ lat: latitude, lng: longitude })
+    if (mapRef.current !== null) {
+      (mapRef.current).setCenter({ lat: latitude, lng: longitude })
     }
   }, [latitude, longitude])
 

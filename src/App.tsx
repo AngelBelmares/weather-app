@@ -6,7 +6,7 @@ import { useWeather } from './hooks/useWeather'
 import { LocationForm } from './components/LocationForm'
 import { WeatherData, Themes } from './types/weather'
 import { MainCard } from './components/MainCard'
-import { Map } from './components/Map'
+import { GoogleMap } from './components/Map'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from './hooks/useLocation'
 import { Background } from './components/Background'
@@ -40,7 +40,7 @@ function App (): JSX.Element {
           <MainCard currentConditions={currentConditions} tzoffset={locationInfo.tzoffset} />
           <aside className='flex flex-col gap-8 w-1/2'>
             <LocationForm onLocationChange={handleLocationChange} />
-            <Map locationInfo={locationInfo} theme={currentTheme} />
+            <GoogleMap locationInfo={locationInfo} theme={currentTheme} />
           </aside>
         </div>
       </main>

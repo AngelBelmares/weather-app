@@ -4,6 +4,11 @@ const bdcolor = 'rgba(255, 255, 255, 0.9)'
 const bgcolor = 'rgba(255, 255, 255, 0.25)'
 const textcolor = 'white'
 
+interface Hour {
+  datetime: string
+  temp: number
+}
+
 export const getOptions = (minTemp: number, maxTemp: number): any => ({
   scales: {
     x: {
@@ -69,7 +74,7 @@ export const getData = (day: any): any => ({
         size: 18
       }
     },
-    data: day.hours.map(hour => Math.round(hour.temp)),
+    data: day.hours.map((hour: Hour) => Math.round(hour.temp)),
     borderColor: `${bdcolor}`,
     tension: 0.4,
     backgroundColor: `${bgcolor}`,

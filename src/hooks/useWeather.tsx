@@ -27,7 +27,7 @@ export function useWeather (location: string): { weatherData: WeatherData[], cur
   }
 
   const VITE_API_KEY = import.meta.env.VITE_API_KEY
-  const API_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=days%2Chours%2Ccurrent&key=${VITE_API_KEY}&contentType=json`
+  const API_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=days%2Chours%2Ccurrent&key=${VITE_API_KEY as string}&contentType=json`
   console.log(API_URL)
 
   useEffect(() => {

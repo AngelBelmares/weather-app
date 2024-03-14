@@ -10,7 +10,7 @@ export function WeatherCard ({ handleDayChange, day, imageSrc, temperature = { m
         <header className='flex flex-col items-center'>
           <h2 className='font-bold'>{dayName}</h2>
           <img src={`/assets/icons/${imageSrc}.png`} alt='' />
-          <p className='text-neutral-100 leading-none font-medium pt-1'>{conditions}</p>
+          <p className='text-neutral-200 leading-none font-medium text-base pt-1'>{conditions}</p>
         </header>
         <footer className='flex flex-col mb-2'>
           <div className='flex gap-4'>

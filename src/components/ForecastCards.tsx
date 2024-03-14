@@ -24,7 +24,7 @@ export function ForecastCards ({ weatherData = [], setSelectedDay }: ForecastCar
   }
 
   return (
-    <section className={`flex items-center justify-center w-full h-48 my-4 mx-1 overflow-x-visible relative pl-2 md:pl-0
+    <section className={`flex items-center justify-center w-full h-48 md:h-52 my-4 mx-1 overflow-x-visible relative pl-2 md:pl-0
       ${atBeginning ? '[mask-image:_linear-gradient(to_right,_black_calc(100%-50px),transparent_100%)]' : ''}
       ${atEnd ? '[mask-image:_linear-gradient(to_left,_black_calc(100%-50px),transparent_100%)]' : ''}
       ${!atBeginning && !atEnd ? '[mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-50px),transparent_100%)]' : ''}

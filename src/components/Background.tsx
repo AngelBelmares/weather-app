@@ -19,8 +19,13 @@ export function Background ({ theme }: BackgroundProps): JSX.Element {
   const imageSrc = getTheme(theme)
 
   return (
-    <div className='fixed w-screen h-screen aspect-video -z-10'>
-      <img className='h-full w-full object-cover' src={`${imageSrc}`} alt='' />
-    </div>
+    <div
+      className='fixed w-screen h-screen aspect-video -z-10'
+      style={{
+        backgroundImage: `url(${imageSrc})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    />
   )
 }

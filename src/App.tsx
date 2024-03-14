@@ -10,6 +10,7 @@ import { GoogleMap } from './components/GoogleMap'
 import { useTheme } from './hooks/useTheme'
 import { useLocation } from './hooks/useLocation'
 import { Background } from './components/Background'
+import useWindowSize from './hooks/useWindowSize'
 
 function App (): JSX.Element {
   const [locationName, setLocationName] = useState<string>('')
@@ -31,20 +32,20 @@ function App (): JSX.Element {
     setLocationName(newLocation)
   }
 
+  const windowSize = useWindowSize()
+
   return (
     <>
       <Background theme={currentTheme} />
-      <main className='flex flex-col items-center justify-between w-full md:w-4/5 lg:w-1/2 m-4 gap-6 overflow-hidden'>
-        <h1 className='font-bold text-3xl text-white/90'>{locationInfo.name}</h1>
-        <div className='flex gap-8'>
+      <main className='flex flex-col items-center justify-between w-full md:w-4/5 max-w-screen-xl mt-4 md:m-4 gap-4 md:gap-6 px-4 md:px-0 backdrop-blur-sm md:backdrop-blur-0'>
+        <h1 className='font-bold text-2xl md:text-3xl text-white/90 text-center'>{locationInfo.name}</h1>
+        <LocationForm onLocationChange={handleLocationChange} />
+        <div className='flex flex-row w-full gap-2 md:gap-8 items-center justify-center'>
           <MainCard currentConditions={currentConditions} tzoffset={locationInfo.tzoffset} />
-          <aside className='flex flex-col gap-8 w-1/2'>
-            <LocationForm onLocationChange={handleLocationChange} />
-            <GoogleMap locationInfo={locationInfo} theme={currentTheme} />
-          </aside>
+          {windowSize.width > 768 && <GoogleMap locationInfo={locationInfo} theme={currentTheme} />}
         </div>
       </main>
-      <footer className='flex flex-col items-center justify-between w-full h-1/2 p-3 md:w-3/4'>
+      <footer className='flex flex-col items-center justify-between w-full md:w-4/5 max-w-screen-xl p-0'>
         <ForecastCards
           weatherData={weatherData}
           setSelectedDay={setSelectedDay}

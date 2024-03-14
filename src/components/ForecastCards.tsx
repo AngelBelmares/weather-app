@@ -1,10 +1,15 @@
 import { ForecastCardsProps } from '../types/weather'
 import { WeatherCard } from './WeatherCard'
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
-import { useSliderHandlers } from '../hooks/useSliderHandlers'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import { useState } from 'react'
+import { FreeMode } from 'swiper/modules'
 
 export function ForecastCards ({ weatherData = [], setSelectedDay }: ForecastCardsProps): JSX.Element {
-  const { slideLeft, slideRight } = useSliderHandlers()
+  const [atBeginning, setAtBeginning] = useState<boolean>(true)
+  const [atEnd, setAtEnd] = useState<boolean>(false)
 
   if (!Array.isArray(weatherData)) {
     console.log(weatherData)
@@ -19,24 +24,37 @@ export function ForecastCards ({ weatherData = [], setSelectedDay }: ForecastCar
   }
 
   return (
-    <section className='relative flex items-center justify-center h-full w-full'>
-      <MdChevronLeft className='opacity-70 hover:opacity-100 hover:scale-125 transition-transform duration-200' onClick={slideLeft} size={40} color='white' />
-      <div id='slider' className='flex items-center justify-start w-fit gap-2 overflow-y-visible overflow-x-hidden py-6 whitespace-nowrap scroll-smooth scrollbar-hide [mask-image:_linear-gradient(to_right,transparent_0,_black_120px,_black_calc(100%-120px),transparent_100%)]'>
-        {weatherData.map((data, index) => {
-          const { day, imageSrc, temperature, conditions } = data
-          return (
+    <section className={`flex items-center justify-center w-full h-48 my-4 mx-1 overflow-x-visible relative pl-2 md:pl-0
+      ${atBeginning ? '[mask-image:_linear-gradient(to_right,_black_calc(100%-50px),transparent_100%)]' : ''}
+      ${atEnd ? '[mask-image:_linear-gradient(to_left,_black_calc(100%-50px),transparent_100%)]' : ''}
+      ${!atBeginning && !atEnd ? '[mask-image:_linear-gradient(to_right,transparent_0,_black_50px,_black_calc(100%-50px),transparent_100%)]' : ''}
+    `}
+    >
+      <Swiper
+        modules={[FreeMode]}
+        spaceBetween={6}
+        slidesPerView='auto'
+        freeMode
+        className='w-full h-full'
+        onReachBeginning={() => setAtBeginning(true)}
+        onReachEnd={() => setAtEnd(true)}
+        onFromEdge={() => {
+          setAtBeginning(false)
+          setAtEnd(false)
+        }}
+      >
+        {weatherData.map((day, index) => (
+          <SwiperSlide key={index} className='h-full aspect-[7/10] w-auto'>
             <WeatherCard
-              key={index}
-              day={day}
-              imageSrc={imageSrc}
-              temperature={temperature}
-              conditions={conditions}
               handleDayChange={handleDayChange}
+              day={day.day}
+              imageSrc={day.imageSrc}
+              temperature={day.temperature}
+              conditions={day.conditions}
             />
-          )
-        })}
-      </div>
-      <MdChevronRight className='opacity-70 hover:opacity-100 hover:scale-125 transition-transform duration-200' onClick={slideRight} size={40} color='white' />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   )
 }

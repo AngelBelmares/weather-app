@@ -15,9 +15,9 @@ export function LocationForm ({ onLocationChange }: any): JSX.Element {
   }
 
   return (
-    <form className='flex text-white' onSubmit={handleSubmit}>
+    <form className='flex text-white w-full h-8 max-w-screen-lg' onSubmit={handleSubmit}>
       <input
-        className='p-1 rounded-sm w-full hover:scale-105 hover:brightness-110 hover:m-0 focus:outline-none bg-white/30 dark:bg-white/10 text-white placeholder-white/50'
+        className='p-1 rounded-sm w-full hover:brightness-110 hover:m-0 focus:outline-none bg-white/30 dark:bg-white/10 text-white placeholder-white/50'
         type='text'
         placeholder='Location'
         name='location'

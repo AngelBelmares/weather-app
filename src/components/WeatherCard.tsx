@@ -6,13 +6,13 @@ export function WeatherCard ({ handleDayChange, day, imageSrc, temperature = { m
 
   if (day !== '' && imageSrc !== '' && temperature !== null && conditions !== '') {
     return (
-      <article onClick={() => handleDayChange?.(day)} className='flex flex-col text-white justify-center items-center min-h-32 min-w-40 p-2 rounded-sm cursor-pointer backdrop-blur-sm bg-white/30 dark:bg-white/15 shadow-md hover:brightness-110 hover:scale-110 transition-transform ease-out duration-300'>
-        <header className='flex flex-col justify-center items-center'>
-          <h2 className='font-bold text-lg'>{dayName}</h2>
+      <article onClick={() => handleDayChange?.(day)} className='flex flex-col text-white justify-between items-center h-full aspect-[7/10] w-auto p-1 md:p-2 text-base md:text-lg text-center rounded-sm cursor-pointer backdrop-blur-sm bg-white/30 dark:bg-white/15 shadow-md hover:brightness-110 hover:scale-105 transition-transform ease-out duration-300'>
+        <header className='flex flex-col items-center'>
+          <h2 className='font-bold'>{dayName}</h2>
           <img src={`/assets/icons/${imageSrc}.png`} alt='' />
-          <p className='text-neutral-100 font-medium'>{conditions}</p>
+          <p className='text-neutral-100 leading-none font-medium pt-1'>{conditions}</p>
         </header>
-        <footer className='flex flex-col text-lg mt-3'>
+        <footer className='flex flex-col mb-2'>
           <div className='flex gap-4'>
             <div className='flex flex-col items-center'>
               <span className=''>{`${Math.round(temperature.max)}°C`}</span>
